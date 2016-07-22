@@ -1,0 +1,87 @@
+@import '../node_modules/normalize.css';
+
+@font-size: 16px;
+@line-height: 1.4;
+
+@background-color: lighten(black, 10%);
+
+@designs: default, primary, danger, warning, success;
+
+@color-default: lighten(black, 80%);
+@color-primary: rgb(25%, 75%, 100%);
+@color-danger: rgb(95%, 35%, 35%);
+@color-warning: rgb(90%, 60%, 20%);
+@color-success: rgb(40%, 80%, 40%);
+
+@border-width: 3px;
+@border-radius: 3px;
+
+@spacing-x: 10px;
+@spacing-y: 10px;
+
+@transition-duration: 0.2s;
+
+@lighten-hover: 10%;
+@lighten-active: 10%;
+@lighten-focus: 10%;
+
+@background-interact: fade(white, 5%);
+
+.margin-spacing() {
+    margin: @spacing-y @spacing-x @spacing-y 0;
+    &:last-child {
+        margin-right: 0;
+    }
+}
+
+.interact(@color) {
+    transition-property+: color, background;
+    transition-duration: @transition-duration;
+
+    @pseudos: hover, active, focus;
+
+    .pseudos(@i: length(@pseudos)) when (@i > 0) {
+        .pseudos(@i - 1);
+
+        @pseudo: extract(@pseudos, @i);
+        @lighten: "lighten-@{pseudo}";
+
+        &:@{pseudo} {
+            color: lighten(@color, @@lighten);
+            background: @background-interact;
+        }
+    }
+
+    .pseudos();
+}
+
+.designs(@ds: @designs; @i: length(@ds)) when (@i > 0) {
+    .designs(@ds, @i - 1);
+
+    @design: extract(@ds, @i);
+    @color: "color-@{design}";
+
+    :global .asp-ux-@{design} {
+        background: none;
+        color: @@color;
+
+        .interact(@@color);
+    }
+}
+
+.designs();
+
+body {
+    line-height: @line-height;
+
+    font-family: sans-serif;
+    font-size: @font-size;
+
+    background-color: @background-color;
+    color: @color-default;
+
+    :focus {
+        outline: none;
+    }
+}
+

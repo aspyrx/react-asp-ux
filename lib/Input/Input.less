@@ -1,0 +1,49 @@
+@import (reference) '../index';
+
+.label {
+    .margin-spacing();
+
+    cursor: pointer;
+    user-select: none;
+
+    display: block;
+
+    &.inline {
+        display: inline-block;
+    }
+
+    &.text {
+        display: flex;
+        flex-flow: column;
+
+        &.inline {
+            display: inline-flex;
+        }
+
+        > * {
+            display: block;
+        }
+
+        > input {
+            border: none;
+            border-bottom: @border-width solid;
+            border-radius: @border-radius;
+        }
+    }
+
+    &.checkbox, &.radio {
+        padding: 0 @spacing-x;
+
+        & > input {
+            .margin-spacing();
+            border: @border-width solid;
+            border-radius: @border-radius;
+        }
+    }
+
+    > input {
+        background: none;
+        color: inherit;
+    }
+}
+
