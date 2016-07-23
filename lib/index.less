@@ -24,6 +24,7 @@
 @lighten-hover: 10%;
 @lighten-active: 10%;
 @lighten-focus: 10%;
+@lighten-visited: 10%;
 
 @background-interact: fade(white, 5%);
 
@@ -82,6 +83,17 @@ body {
 
     :focus {
         outline: none;
+    }
+}
+
+a {
+    border-radius: @border-radius;
+    color: @color-primary;
+
+    .interact(@color-primary);
+
+    &:visited {
+        color: lighten(@color-primary, @lighten-visited);
     }
 }
 
