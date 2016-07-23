@@ -6,19 +6,15 @@
     cursor: pointer;
     user-select: none;
 
-    display: block;
+    display: flex;
 
     &.inline {
-        display: inline-block;
+        display: inline-flex;
     }
 
     &.text {
-        display: flex;
         flex-flow: column;
-
-        &.inline {
-            display: inline-flex;
-        }
+        align-items: stretch;
 
         > * {
             display: block;
@@ -32,6 +28,7 @@
     }
 
     &.checkbox, &.radio {
+        align-items: center;
         padding: 0 @spacing-x;
 
         & > input {
@@ -39,11 +36,6 @@
             border: @border-width solid;
             border-radius: @border-radius;
         }
-    }
-
-    > input {
-        background: none;
-        color: inherit;
     }
 }
 
