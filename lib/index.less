@@ -31,6 +31,7 @@
 @background-interact: fade(white, 5%);
 
 .margin-spacing() {
+    margin-top: 0;
     margin-bottom: @spacing-y;
 }
 
@@ -103,5 +104,11 @@ a {
     &:visited {
         color: lighten(@color-primary, @lighten-visited);
     }
+}
+
+ol, ul {
+    .margin-spacing();
+    padding-left: 0;
+    list-style-position: inside;
 }
 
