@@ -97,12 +97,18 @@ body {
 
 a {
     border-radius: @border-radius;
-    color: @color-primary;
 
-    .interact(@color-primary);
+    &:link {
+        color: @color-primary;
+
+        .interact(@color-primary);
+    }
 
     &:visited {
-        color: lighten(@color-primary, @lighten-visited);
+        @color-visited: lighten(@color-primary, @lighten-visited);
+        color: @color-visited;
+
+        .interact(@color-visited);
     }
 }
 
