@@ -30,12 +30,12 @@
 
 @background-interact: fade(white, 5%);
 
-.margin-spacing {
-    margin-top: @spacing-y;
+.margin-spacing() {
     margin-bottom: @spacing-y;
 }
 
-.margin-spacing-inline {
+.margin-spacing-inline() {
+    .margin-spacing();
     margin-right: @spacing-x;
 
     &:last-child {
