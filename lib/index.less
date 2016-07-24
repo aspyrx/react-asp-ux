@@ -1,6 +1,8 @@
 @import '../node_modules/normalize.css';
 
+@font-size-smaller: 14px;
 @font-size: 16px;
+@font-size-larger: 18px;
 @line-height: 1.4;
 
 @background-color: lighten(black, 10%);
@@ -28,12 +30,19 @@
 
 @background-interact: fade(white, 5%);
 
-.margin-spacing() {
-    margin: @spacing-y @spacing-x @spacing-y 0;
+.margin-spacing {
+    margin-top: @spacing-y;
+    margin-bottom: @spacing-y;
+}
+
+.margin-spacing-inline {
+    margin-right: @spacing-x;
+
     &:last-child {
         margin-right: 0;
     }
 }
+
 
 .interact(@color) {
     transition-property+: color, background;
@@ -74,8 +83,7 @@
 
 body {
     line-height: @line-height;
-
-    font-family: sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Segoe UI", Oxygen, Ubuntu, Cantarell, "Open Sans", sans-serif;
     font-size: @font-size;
 
     background-color: @background-color;

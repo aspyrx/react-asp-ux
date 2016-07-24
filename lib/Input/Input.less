@@ -1,18 +1,21 @@
 @import (reference) '../index';
 
 .label {
-    .margin-spacing();
-
     cursor: pointer;
     user-select: none;
 
-    display: flex;
-
     &.inline {
+        .margin-spacing-inline();
         display: inline-flex;
     }
 
+    &:not(.inline) {
+        .margin-spacing();
+        display: flex;
+    }
+
     &.text {
+        font-size: @font-size-smaller;
         flex-flow: column;
         align-items: stretch;
 
@@ -21,6 +24,7 @@
         }
 
         > input {
+            font-size: @font-size-larger;
             border: none;
             border-bottom: @border-width solid;
             border-radius: @border-radius;
@@ -28,11 +32,12 @@
     }
 
     &.checkbox, &.radio {
+        font-size: @font-size-larger;
         align-items: center;
         padding: 0 @spacing-x;
 
         & > input {
-            .margin-spacing();
+            .margin-spacing-inline();
             border: @border-width solid;
             border-radius: @border-radius;
         }
