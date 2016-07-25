@@ -1,0 +1,23 @@
+@import (reference) '../index';
+
+.select {
+    border: none;
+    border-bottom: @border-width solid;
+    border-radius: @border-radius;
+
+    &.inline {
+        .margin-spacing-inline();
+        display: inline-flex;
+    }
+
+    &:not(.inline) {
+        .margin-spacing();
+        width: 100%;
+        display: flex;
+    }
+
+    * {
+        color: initial;
+    }
+}
+
