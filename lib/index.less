@@ -35,15 +35,18 @@
     margin-bottom: @spacing-y;
 }
 
-.margin-spacing-inline() {
+.margin-spacing-inline(@vertical: true) when (@vertical) {
     .margin-spacing();
+    .margin-spacing-inline(false);
+}
+
+.margin-spacing-inline(@vertical) when not (@vertical) {
     margin-right: @spacing-x;
 
     &:last-child {
         margin-right: 0;
     }
 }
-
 
 .interact(@color) {
     transition-property+: color, background;
